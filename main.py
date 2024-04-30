@@ -6,4 +6,4 @@ urls=[
     "https://yad2.co.il"
 ]
 
-LinkShortner.shorten(urls[2])
+id=LinkShortner.shorten(urls[2])
