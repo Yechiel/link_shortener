@@ -1,6 +1,8 @@
 
 from json_manager import JsonManager
 import uuid
+from utils.generate_id import generate_id
+from utils.is_unique import is_unique
 
 class LinkShortner():
 
@@ -18,9 +20,10 @@ class LinkShortner():
         url_entities=JasonManager.read()
         ids=[entity["id"] for enriry in url_entities]
         unique_ids=list(set(ids)))
-
-        while unique_id in unique_ids:
-            unique_id=str(uuid.uuid4())[:8]
+        
+        unique_id=generate_id
+        while not is_unique(unique_id,unique_ids):
+            unique_id=generate_id
       
         new_entity={"id":unique_id,"url":link}
         link_entities=JsonManager.read()
