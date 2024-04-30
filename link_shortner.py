@@ -20,9 +20,9 @@ class LinkShortner():
         print(url_entities)
         ids=[entity["id"] for entity in url_entities]
         unique_ids=list(set(ids))
-        unique_id=generate_id
+        unique_id=generate_id()
         while not is_unique(unique_id,unique_ids):
-            unique_id=generate_id
+            unique_id=generate_id()
         print(unique_id)
         new_entity={"id":unique_id,"url":link}
         link_entities=JsonManager.read()
