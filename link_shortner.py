@@ -14,7 +14,14 @@ class LinkShortner():
 
     @classmethod
     def shorten(self,link:str):
-        unique_id=str(uuid.uuid4())[:8]
+        
+        url_entities=JasonManager.read()
+        ids=[entity["id"] for enriry in url_entities]
+        unique_ids=list(set(ids)))
+
+        while unique_id in unique_ids:
+            unique_id=str(uuid.uuid4())[:8]
+      
         new_entity={"id":unique_id,"url":link}
         link_entities=JsonManager.read()
         link_entities.append(new_entity)
