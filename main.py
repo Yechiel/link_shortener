@@ -14,8 +14,12 @@ id=LinkShortner.shorten(urls[2])
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 app=FastAPI()
+@app.get("/api/health_check")
+def health_check():
+    return "healthy"
+
 @app.get("/api/{id}")
-def health_check(id: str):
+def redirect(id: str):
     #return {"status": id} 
     url = LinkShortner.get_url_by_id(id)
     return RedirectResponse(url)
