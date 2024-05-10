@@ -1,0 +1,23 @@
+version: '3.8'
+
+service:
+  api-node-1:
+    image: link-shortener-dev
+    volumes:
+      - ./data/:/app/data/
+    ports:
+      - "8001:8080"
+  
+  api-node-2:
+    image: link-shortener-dev
+    volumes:
+      - ./data/:/app/data/
+    ports:
+      - "8002:8080"
+  
+  api-node-3:
+    image: link-shortener-dev
+    volumes:
+      - ./data/:/app/data/
+    ports:
+      - "8003:8080"
