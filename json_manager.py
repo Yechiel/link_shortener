@@ -1,6 +1,8 @@
 import json
+import os
 
-FILE_NAME="./data/links.json"
+FILE_NAME=os.environ["LINKS_PATH"]
+#./data/links.json"
 
 class JsonManager:
 
