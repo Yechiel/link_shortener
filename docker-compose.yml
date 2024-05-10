@@ -1,8 +1,8 @@
 version: '3.8'
 
-service:
+services:
   api-node-1:
-    image: link-shortener-dev
+    image: link-shortner-dev
     volumes:
       - ./data/:/app/data/
     ports:
@@ -11,8 +11,8 @@ service:
       - LINKS_PATH = ./data/links.json
   
   echo_node:
-    image: link-shortener-dev
-    depends on:
+    image: link-shortner-dev
+    depends_on:
       - api-node-1
     volumes:
       - ./data/:/app/data/
@@ -23,19 +23,19 @@ service:
     command: ["echo", "system is fine!"]    
 
   api-node-2:
-    image: link-shortener-dev
-    volumes:
-      - ./data/:/app/data/
-    ports:
-      - "8002:8080"
-    environment:
-      - LINKS_PATH = ./data/links.json
-  
-  api-node-3:
-    image: link-shortener-dev
+    image: link-shortner-dev
     volumes:
       - ./data/:/app/data/
     ports:
       - "8003:8080"
+    environment:
+      - LINKS_PATH = ./data/links.json
+  
+  api-node-3:
+    image: link-shortner-dev
+    volumes:
+      - ./data/:/app/data/
+    ports:
+      - "8004:8080"
     environment:
       - LINKS_PATH = ./data/links.json
