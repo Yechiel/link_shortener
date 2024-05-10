@@ -7,6 +7,8 @@ service:
       - ./data/:/app/data/
     ports:
       - "8001:8080"
+    environment:
+      - LINKS_PATH = ./data/links.json
   
   api-node-2:
     image: link-shortener-dev
@@ -14,6 +16,8 @@ service:
       - ./data/:/app/data/
     ports:
       - "8002:8080"
+    environment:
+      - LINKS_PATH = ./data/links.json
   
   api-node-3:
     image: link-shortener-dev
@@ -21,3 +25,5 @@ service:
       - ./data/:/app/data/
     ports:
       - "8003:8080"
+    environment:
+      - LINKS_PATH = ./data/links.json
