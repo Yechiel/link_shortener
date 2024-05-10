@@ -17,5 +17,7 @@ for entity in entities:
         if response.status_code in [200, 201]:
             print("OK")
             # add into a new file
+    except:
+        pass
             
 #save new file as links.json
