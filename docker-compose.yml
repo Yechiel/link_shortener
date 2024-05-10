@@ -10,6 +10,18 @@ service:
     environment:
       - LINKS_PATH = ./data/links.json
   
+  echo_node:
+    image: link-shortener-dev
+    depends on:
+      - api-node-1
+    volumes:
+      - ./data/:/app/data/
+    ports:
+      - "8002:8080"
+    environment:
+      - LINKS_PATH = ./data/links.json
+    command: ["echo", "system is fine!"]    
+
   api-node-2:
     image: link-shortener-dev
     volumes:
