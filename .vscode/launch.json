@@ -4,13 +4,24 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "name": "File Debugger",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "env": {
+                "LINKS_PATH": "./data/links.json"
+            }
+        },
         {
             "name": "FastAPI",
             "type": "debugpy",
             "request": "launch",
             "module": "uvicorn",
-            "env":{"LINKS_PATH": "./data/links.json"},
+            "env": {
+                "LINKS_PATH": "./data/links.json"
+            },
             "args": [
                 "main:app",
                 "--reload"

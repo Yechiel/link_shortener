@@ -4,7 +4,10 @@ from utils.generate_id import generate_id
 from utils.is_unique import is_unique
 
 class LinkShortner():
-
+    @classmethod
+    def get_all(self):
+         return JsonManager.read()
+    
     @classmethod
     def get_url_by_id(self,id):
         link_entities=JsonManager.read()

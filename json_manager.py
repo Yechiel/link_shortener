@@ -5,7 +5,6 @@ FILE_NAME=os.environ["LINKS_PATH"]
 #./data/links.json"
 
 class JsonManager:
-
     @classmethod
     def read(self,filename:str =FILE_NAME):
         with open(filename,"r") as f:
