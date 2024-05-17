@@ -51,3 +51,4 @@ services:
       - ./data/:/app/data/
     environment:
       - LINKS_PATH=./data/links.json
+    command: ["python", "delete_invalid_links.py"]

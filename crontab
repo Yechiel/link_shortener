@@ -1,0 +1,1 @@
+* * * * * /bin/bash /home/cyber/projects/link_shortner/run_deletion_docker.sh >/home/cyber/links_deletion.log
