@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "delete_invalid_links",
+            "name": "delete invalid links",
             "type": "debugpy",
             "request": "launch",
             "program": "delete_invalid_links.py",
