@@ -1,41 +1,37 @@
 version: '3.8'
 
+x-common-api-settings: &common-settings
+    image: link-shortner-dev
+#    build:
+#     context: .
+#     dockerfile: Dockerfile
+    volumes:
+      - ./data/:/app/data/
+    environment:
+      - LINKS_PATH = ./data/links.json
+    healthcheck:
+      test: ["CMD","curl","localhost:8080/api/health_check"]
+      interval: 30s
+      timeout: 3s
+      retries: 2
+
 services:
   api-node-1:
-    image: link-shortner-dev
-    volumes:
-      - ./data/:/app/data/
+    <<: *common-settings
     ports:
       - "8001:8080"
-    environment:
-      - LINKS_PATH = ./data/links.json
-  
   echo_node:
-    image: link-shortner-dev
+    <<: *common-settings
     depends_on:
       - api-node-1
-    volumes:
-      - ./data/:/app/data/
     ports:
       - "8002:8080"
-    environment:
-      - LINKS_PATH = ./data/links.json
     command: ["echo", "system is fine!"]    
-
   api-node-2:
-    image: link-shortner-dev
-    volumes:
-      - ./data/:/app/data/
+    <<: *common-settings
     ports:
       - "8003:8080"
-    environment:
-      - LINKS_PATH = ./data/links.json
-  
   api-node-3:
-    image: link-shortner-dev
-    volumes:
-      - ./data/:/app/data/
+    <<: *common-settings
     ports:
       - "8004:8080"
-    environment:
-      - LINKS_PATH = ./data/links.json
