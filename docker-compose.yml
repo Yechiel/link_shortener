@@ -1,27 +1,27 @@
 version: '3.8'
 
 x-common-api-settings: &common-settings
-    image: link-shortner-dev
-#    build:
-#     context: .
-#     dockerfile: Dockerfile
+#    image: link-shortner-dev
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./data/:/app/data/
     environment:
-      - LINKS_PATH = ./data/links.json
+      - LINKS_PATH=./data/links.json
     healthcheck:
       test: ["CMD","curl","localhost:8080/api/health_check"]
       interval: 30s
       timeout: 3s
       retries: 2
-    deploy:
-      resources:
-      limits:
-        cpus: '1'
-        memory: 100m
-      reservations:
-        cpus: '0.5'
-        memory: 10m
+#    deploy:
+#      resources:
+#      limits:
+#        cpus: '1'
+#        memory: 100m
+#      reservations:
+#        cpus: '0.5'
+#        memory: 10m
 
 services:
   api-node-1:

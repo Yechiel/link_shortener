@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "delete_invalid_links",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "delete_invalid_links.py",
+            "console": "integratedTerminal",
+            "env": {
+                "LINKS_PATH": "./data/links.json"
+            }
+
+        },
+        {
             "name": "File Debugger",
             "type": "debugpy",
             "request": "launch",
